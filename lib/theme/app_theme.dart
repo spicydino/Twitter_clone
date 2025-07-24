@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mns_final/theme/pallete.dart';
+import 'package:mns_final/theme/theme.dart';
 
 
 class AppTheme {
@@ -12,5 +12,5 @@ class AppTheme {
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: Pallete.blueColor,
     ),
-  );  
+  );
 }

@@ -12,24 +12,26 @@ void showSnackBar(BuildContext context, String content) {
 }
 
 String getNameFromEmail(String email) {
-  // Split the email by '@' and take the first part
   return email.split('@')[0];
-  // String name = email.split('@')[0];
-  // Replace '.' with ' ' to make it more readable
-  //name = name.replaceAll('.', ' ');
-  // Capitalize the first letter of each word
-  //return name.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ');
 }
 
-
-Future<List<XFile>?> pickImages()  async{
-  final List<XFile>? images =[];
-  final ImagePicker Picker = ImagePicker();
-  final ImageFile = await Picker.pickMultiImage();
-  if (ImageFile.isNotEmpty) {
-    for(final image in ImageFile) {
-      images?.add(File(image.path) as XFile);
+Future<List<File>> pickImages() async {
+  List<File> images = [];
+  final ImagePicker picker = ImagePicker();
+  final imageFiles = await picker.pickMultiImage();
+  if (imageFiles.isNotEmpty) {
+    for (final image in imageFiles) {
+      images.add(File(image.path));
     }
   }
-  return images;;
+  return images;
+}
+
+Future<File?> pickImage() async {
+  final ImagePicker picker = ImagePicker();
+  final imageFile = await picker.pickImage(source: ImageSource.gallery);
+  if (imageFile != null) {
+    return File(imageFile.path);
+  }
+  return null;
 }

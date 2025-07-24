@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+import 'package:mns_final/theme/theme.dart';
 
 class RoundedSmallButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -29,11 +29,8 @@ class RoundedSmallButton extends StatelessWidget {
         ),
         backgroundColor: backgroundColor,
         labelPadding: const EdgeInsets.symmetric(
-          horizontal: 15,
+          horizontal: 20,
           vertical: 5,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30), // Increase for more roundness
         ),
       ),
     );
